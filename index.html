@@ -4,13 +4,6 @@
     <meta charset="utf8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
-    <script src="Grass.js"></script>
-    <script src="GrassEater.js"></script>
-    <script src="Predator.js"></script>
-    <script src="Hunter.js"></script>
-    <script src="Fox.js"></script>
-    <script src="Meat.js"></script>
-    <script src="script.js"></script>
     <style>
         canvas {
             display: block;
@@ -39,10 +32,10 @@
                 <h1>Ծրագրավորում III</h1>
             </tr>
             <tr>
-                <h1>Դավիթ Ավանեսյան/h1>
+                <h1>Դավիթ Ավանեսյան</h1>
             </tr>
             <tr>
-                <td>Exanak</td>
+                <td>Եղանակ</td>
                 <td id="weather"></td>
             </tr>
             <tr>
@@ -71,6 +64,7 @@
                     երբ energy-ն հասնում է 25-ի և մեռնում, երբ 0 է դառնում
                 </td>
                 <td id="grassEaterCount"></td>
+                <td id="grassEaterLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
@@ -80,6 +74,7 @@
                     աղվեսներին, բազմանում է, երբ health-ը հասնում է 53-ի, մեռնում, երբ health-ը հասնում է 0-ի
                 </td>
                 <td id="predatorCount"></td>
+                <td id="predatorLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
@@ -89,6 +84,7 @@
                     սպանում են գիշատիչներին և աղվեսներին, չի բազմանում, մահանում է 15 սպանած կենդանուց հետո
                 </td>
                 <td id="hunterCount"></td>
+                <td id="hunterLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
@@ -98,6 +94,7 @@
                     բազմանում է, երբ life-ը հասնում է 42-ի, մահանում, երբ life-ը հասնում է 0-ի
                 </td>
                 <td id="foxCount"></td>
+                <td id="foxLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
@@ -109,7 +106,7 @@
             </tr>
         </tbody>
     </table>
-    <script src="p5.js"></script>
+    <script src="p5.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>

@@ -4,12 +4,12 @@ var GrassEater = require("./modules/GrassEater.js");
 var Predator = require("./modules/Predator.js");
 var Hunter = require("./modules/Hunter.js");
 var Fox = require("./modules/Fox.js");
-let random = require('./modules/random');
+let random = require('./modules/random.js');
 //! Requiring modules  --  END
 
 //! Initializing global arrays  --  START
 grassArr = [];
-grasseaterArr = [];
+grassEaterArr = [];
 predatorArr = [];
 hunterArr = [];
 foxArr = [];
@@ -61,7 +61,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, hunter, fox) {
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 25, 20, 15, 10, 2);
+matrixGenerator(50, 1200, 600, 150, 100, 50, 50);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -86,7 +86,7 @@ function creatingObjects() {
             }
             else if (matrix[y][x] == 2) {
                 var grassEater = new GrassEater(x, y);
-                grasseaterArr.push(grassEater);
+                grassEaterArr.push(grassEater);
                 grasseaterHashiv++;
             }
             else if (matrix[y][x] == 3) {
@@ -112,22 +112,21 @@ function creatingObjects() {
 creatingObjects();
 
 let exanak = 0;
-let weather = "winter"
 
 function game() {
 
     exanak++;
     if (exanak <= 10) {
-        weather = "summer"
+        weather = "ամառ"
     }
     else if (exanak <= 20) {
-        weather = "autumn"
+        weather = "աշուն"
     }
     else if (exanak <= 30) {
-        exanak = "winter"
+        exanak = "ձմեռ"
     }
     else if (exanak <= 40) {
-        exanak = "spring"
+        exanak = "գարուն"
     }
     else if (exanak > 40) {
         exanak = 0
@@ -139,9 +138,9 @@ function game() {
             grassArr[i].mul();
         }
     }
-    if (grasseaterArr[0] !== undefined) {
-        for (var i in grasseaterArr) {
-            grasseaterArr[i].eat();
+    if (grassEaterArr[0] !== undefined) {
+        for (var i in grassEaterArr) {
+            grassEaterArr[i].eat();
         }
     }
     if (predatorArr[0] !== undefined) {
@@ -156,7 +155,7 @@ function game() {
     }
     if (foxArr[0] !== undefined) {
         for (var i in foxArr) {
-            foxArr[i].eat();
+            foxArr[i].meat();
         }
     }
 
@@ -166,7 +165,7 @@ function game() {
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
         grasseaterCounter: grasseaterHashiv,
-        grasseaterLiveCounter: grasseaterArr.length,
+        grasseaterLiveCounter: grassEaterArr.length,
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
         hunterCounter: hunterHashiv,

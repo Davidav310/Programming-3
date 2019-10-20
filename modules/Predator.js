@@ -57,9 +57,9 @@ module.exports = class Predator extends LiveForm {
             matrix[this.y][this.x] = 0;
 
 
-            for (let i in grasseaterArr) {
-                if (grasseaterArr[i].x == x && grasseaterArr[i].y == y) {
-                    grasseaterArr.splice(i, 1)
+            for (let i in grassEaterArr) {
+                if (grassEaterArr[i].x == x && grassEaterArr[i].y == y) {
+                    grassEaterArr.splice(i, 1)
                 }
             }
             for (let i in foxArr) {

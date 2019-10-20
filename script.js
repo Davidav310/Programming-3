@@ -91,7 +91,9 @@ function setup() {
                     if(data.weather == "winter"){
                         fill('#e3faf9');
                     }
-                    fill('#ff7b00');
+                    else{
+                        fill('#ff7b00');
+                    }
                     rect(j * side, i * side, side, side);
                 }
                 else if (matrix[i][j] == 6) {
