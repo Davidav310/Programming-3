@@ -1,4 +1,4 @@
-class Meat {
+module.exports = class Meat {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -12,10 +12,9 @@ class Meat {
     }
     die() {
         matrix[this.y][this.x] = 0;
-
         for (let i in meatArr) {
             if (meatArr[i].x == this.x && meatArr[i].y == this.y) {
-                meatArr.splice(i, 1)
+                meatArr.splice(i, 1);
             }
         }
     }

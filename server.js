@@ -61,7 +61,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, hunter, fox) {
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(50, 1200, 600, 150, 100, 50, 50);
+matrixGenerator(50, 500, 100, 50, 25, 10, 50);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -112,21 +112,22 @@ function creatingObjects() {
 creatingObjects();
 
 let exanak = 0;
+let weather = "winter";
 
 function game() {
 
     exanak++;
     if (exanak <= 10) {
-        weather = "ամառ"
+        weather = "winter";
     }
     else if (exanak <= 20) {
-        weather = "աշուն"
+        weather = "spring";
     }
     else if (exanak <= 30) {
-        exanak = "ձմեռ"
+        exanak = "summer";
     }
     else if (exanak <= 40) {
-        exanak = "գարուն"
+        exanak = "autumn";
     }
     else if (exanak > 40) {
         exanak = 0
@@ -181,4 +182,4 @@ function game() {
 
 
 
-setInterval(game, 1000)
+setInterval(game, 100)

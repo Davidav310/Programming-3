@@ -1,5 +1,6 @@
 var LiveForm = require("./LiveForm");
 var random = require("./random.js");
+var meat = require('./Meat')
 
 module.exports = class GrassEater extends LiveForm {
     constructor(x, y) {
