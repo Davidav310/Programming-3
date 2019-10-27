@@ -23,9 +23,9 @@ grasseaterHashiv = 0;
 predatorHashiv = 0;
 hunterHashiv = 0;
 foxHashiv = 0;
+meatHashiv = 0;
 // statistics end
 
-// time = 0
 //! Creating MATRIX -- START
 
 function matrixGenerator(matrixSize, grass, grasseater, predator, hunter, fox) {
@@ -61,7 +61,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, hunter, fox) {
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(50, 500, 100, 50, 25, 10, 50);
+matrixGenerator(50, 500, 100, 100, 10, 50);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -124,15 +124,14 @@ function game() {
         weather = "spring";
     }
     else if (exanak <= 30) {
-        exanak = "summer";
+        weather = "summer";
     }
     else if (exanak <= 40) {
-        exanak = "autumn";
+        weather = "autumn";
     }
     else if (exanak > 40) {
-        exanak = 0
+        exanak = 0;
     }
-
 
     if (grassArr[0] !== undefined) {
         for (var i in grassArr) {
@@ -159,6 +158,11 @@ function game() {
             foxArr[i].meat();
         }
     }
+    if (meatArr[0] !== undefined) {
+        for (var i in meatArr) {
+            meatArr[i].time();
+        }
+    }
 
     //! Object to send
     let sendData = {
@@ -173,6 +177,8 @@ function game() {
         hunterLiveCounter: hunterArr.length,
         foxCounter: foxHashiv,
         foxLiveCounter: foxArr.length,
+        meatCounter: meatHashiv,
+        meatLiveCounter: meatArr.length,
         weather: weather
     }
 

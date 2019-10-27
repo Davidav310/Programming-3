@@ -1,5 +1,6 @@
 var LiveForm = require("./LiveForm");
-var random = require("./random.js");
+var random = require("./random");
+var Meat = require('./Meat')
 
 module.exports = class Fox extends LiveForm {
     constructor(x, y) {
@@ -37,6 +38,7 @@ module.exports = class Fox extends LiveForm {
             foxArr.push(fox);
 
             this.life = 40;
+            foxHashiv++;
         }
     }
     meat() {
@@ -97,6 +99,7 @@ module.exports = class Fox extends LiveForm {
         }
     }
     die() {
+        meatHashiv++;
         matrix[this.y][this.x] = 6;
 
         for (let i in foxArr) {

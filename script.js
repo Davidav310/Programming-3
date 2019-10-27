@@ -20,6 +20,9 @@ function setup() {
 
     let foxCountElement = document.getElementById('foxCount');
     let foxLiveCountElement = document.getElementById('foxLiveCount');
+
+    let meatCountElement = document.getElementById('meatCount');
+    let meatLiveCountElement = document.getElementById('meatLiveCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
     socket.on("data", drawCreatures);
     function drawCreatures(data) {
@@ -37,6 +40,8 @@ function setup() {
         hunterLiveCountElement.innerText = data.hunterLiveCounter;
         foxCountElement.innerText = data.foxCounter;
         foxLiveCountElement.innerText = data.foxLiveCounter;
+        meatCountElement.innerText = data.meatCounter;
+        meatLiveCountElement.innerText = data.meatLiveCounter;
         //! Every time it creates new Canvas with new matrix size
         createCanvas(matrix[0].length * side, matrix.length * side)
         //! clearing background by setting it to new grey color
@@ -56,7 +61,7 @@ function setup() {
                         fill("green");
                     }
                     else if (data.weather == "autumn") {
-                        fill("#de4e00");
+                        fill("#47ff3b");
                     }
                     else if (data.weather == "winter") {
                         fill("#c2f1f2");
@@ -75,13 +80,13 @@ function setup() {
                         fill("yellow");
                     }
                     else if (data.weather == "autumn") {
-                        fill("#e6e21e");
+                        fill("#fffc52");
                     }
                     else if (data.weather == "winter") {
-                        fill("#e8e543");
+                        fill("#fffd91");
                     }
                     else if (data.weather == "spring") {
-                        fill("#e6e365");
+                        fill("#fffb19");
                     }
                     else{
                         fill("yellow");
@@ -94,13 +99,13 @@ function setup() {
                         fill("#5b5b5b");
                     }
                     else if (data.weather == "autumn") {
-                        fill("#696868");
+                        fill("#4d4d4d");
                     }
                     else if (data.weather == "winter") {
-                        fill("#807e7e");
+                        fill("#3b3b3b");
                     }
                     else if (data.weather == "spring") {
-                        fill("#6b6b6b");
+                        fill("#262626");
                     }
                     else{
                         fill("#5b5b5b");
@@ -132,13 +137,13 @@ function setup() {
                         fill("#ff7b00");
                     }
                     else if (data.weather == "autumn") {
-                        fill("#ff8614");
+                        fill("#ff9a3b");
                     }
                     else if (data.weather == "winter") {
                         fill("#ffab5c");
                     }
                     else if (data.weather == "spring") {
-                        fill("#de6c00");
+                        fill("#e35700");
                     }
                     else{
                         fill("#ff7b00");
@@ -147,7 +152,21 @@ function setup() {
                 }
 
                 else if (matrix[i][j] == 6) {
-                    fill('#e54444');
+                    if (data.weather == "summer") {
+                        fill("#cf1b1b");
+                    }
+                    else if (data.weather == "autumn") {
+                        fill("#cc4545");
+                    }
+                    else if (data.weather == "winter") {
+                        fill("#f27777");
+                    }
+                    else if (data.weather == "spring") {
+                        fill("#e32b2b");
+                    }
+                    else{
+                        fill("#e54444");
+                    }
                     rect(j * side, i * side, side, side);
                 }
             }

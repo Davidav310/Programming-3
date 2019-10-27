@@ -1,5 +1,5 @@
 var LiveForm = require("./LiveForm");
-var random = require("./random.js");
+var random = require("./random");
 
 module.exports = class Grass extends LiveForm {
     constructor(x, y) {
@@ -39,6 +39,7 @@ module.exports = class Grass extends LiveForm {
             grassArr.push(grass);
 
             this.multiply = 0;
+            grassHashiv++;
         }
     }
 }

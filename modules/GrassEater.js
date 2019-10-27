@@ -1,6 +1,6 @@
 var LiveForm = require("./LiveForm");
-var random = require("./random.js");
-var meat = require('./Meat')
+var random = require("./random");
+var Meat = require('./Meat')
 
 module.exports = class GrassEater extends LiveForm {
     constructor(x, y) {
@@ -38,6 +38,7 @@ module.exports = class GrassEater extends LiveForm {
             grassEaterArr.push(grassEater);
 
             this.energy = 20;
+            grasseaterHashiv++;
         }
     }
     eat() {
@@ -91,6 +92,7 @@ module.exports = class GrassEater extends LiveForm {
         }
     }
     die() {
+        meatHashiv++;
         matrix[this.y][this.x] = 6;
 
         for (let i in grassEaterArr) {

@@ -2,11 +2,11 @@ module.exports = class Meat {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.time = 10;
+        this.timer = 20;
     }
-    move() {
-        this.time--;
-        if (this.time < 0) {
+    time() {
+        this.timer--;
+        if (this.timer < 0) {
             this.die();
         }
     }
